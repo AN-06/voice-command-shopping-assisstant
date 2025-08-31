@@ -1,33 +1,22 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const itemRoutes = require("./routes/itemRoutes");
-const voiceRoutes = require("./routes/voiceRoutes");
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+import dotenv from "dotenv";
 
+import authRoutes from "./routes/authRoutes.js";
+import listRoutes from "./routes/listRoutes.js";
+
+dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// MongoDB connection
-mongoose.connect("mongodb://127.0.0.1:27017/voice-shopping", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-mongoose.connection.once("open", () => console.log("✅ MongoDB connected"));
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB connected"))
+  .catch(err => console.error(err));
 
-// Routes
-app.use("/api/items", itemRoutes);
-app.use("/api/voice-command", voiceRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/list", listRoutes);
 
-// Suggestions
-app.get("/api/suggestions", (req, res) => {
-  res.json({
-    seasonal: ["Mangoes", "Watermelon", "Corn"],
-    substitutes: {
-      milk: ["Almond milk", "Soy milk"],
-      bread: ["Brown bread", "Multigrain bread"],
-    },
-  });
-});
-
-app.listen(5000, () => console.log("🚀 Server running on http://localhost:5000"));
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
