@@ -8,7 +8,7 @@ Frontend is deployed on **Firebase Hosting** and backend is deployed on **Render
 
 ## 🚀 Live Demo
 
-- **Frontend (Firebase Hosting):** [https://voice-command-assistant.web.app](https://voice-command-assistant.web.app)  
+- **Frontend (Firebase Hosting):** [https://voice-command-assisstant.web.app](https://voice-command-assisstant.web.app)  
 - **Backend API (Render):** [https://voice-shopping-backend-nsxu.onrender.com](https://voice-shopping-backend-nsxu.onrender.com)
 
 ---
