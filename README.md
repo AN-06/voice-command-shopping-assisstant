@@ -15,7 +15,7 @@ Frontend is deployed on **Firebase Hosting** and backend is deployed on **Render
 
 ## 📂 GitHub Repository
 
-🔗 [GitHub Source Code](https://github.com/AN-06/voice-command-shopping-assistant)
+🔗 [GitHub Source Code](https://github.com/AN-06/voice-command-shopping-assisstant)
 
 ---
 
