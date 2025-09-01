@@ -1,5 +1,4 @@
-import React from 'react';
-import { Check, X, Package, ShoppingCart } from 'lucide-react';
+import { Check, X, ShoppingCart } from 'lucide-react';
 import { ShoppingItem } from '../types';
 import { CATEGORIES } from '../utils/itemCategories';
 

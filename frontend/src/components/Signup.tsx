@@ -15,11 +15,14 @@ export default function Signup() {
     setSuccess(null);
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form)
-      });
+      const res = await fetch(
+        "https://voice-shopping-backend-nsxu.onrender.com/api/auth/signup",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        }
+      );
 
       const data = await res.json();
 
@@ -32,7 +35,7 @@ export default function Signup() {
         setError(data.error || data.msg || "Signup failed");
       }
     } catch (err) {
-       console.error("Signup error:", err);
+      console.error("Signup error:", err);
       setError("Server error, please try again later");
     }
   };
@@ -40,7 +43,9 @@ export default function Signup() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Create an Account</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+          Create an Account
+        </h2>
 
         {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
         {success && <p className="text-green-500 text-sm mb-4">{success}</p>}
